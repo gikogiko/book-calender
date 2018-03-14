@@ -3,8 +3,12 @@
     <div class="cover-inner">
       <div class="cover-contents">
         <h1>本の発売日カレンダー（仮）</h1>
-        <a href="" class="btn btn-success btn-lg">ブックカレンダーを始める</a>
+          <% unless logged_in? %>
+            <%= link_to 'ブックカレンダーを始める', signup_path, class: 'btn btn-success btn-lg' %>
+          <% end %>
       </div>
     </div>
   </div>
 <% end %>
+
+<p>テスト</p>
