@@ -2,7 +2,7 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h1>本の発売日カレンダー（仮）</h1>
+        <h1>本の発売日カレンダー</h1>
           <% unless logged_in? %>
             <%= link_to 'ブックカレンダーを始める', signup_path, class: 'btn btn-success btn-lg' %>
           <% end %>
@@ -11,4 +11,16 @@
   </div>
 <% end %>
 
-<p>テスト</p>
+<%= render 'books/books', books: @books %>
+
+<h1>ここからカレンダー検証用</h1>
+
+<%= month_calendar events: @interestings, attribute: :release_date do |date, books| %>
+  <%= date %>
+  <% books.each do |book| %>
+    <div>
+      <%= book.name %>
+      <img src="<%= book.image_url %>" width="50px" height="50px">
+    </div>
+  <% end %>
+<% end %>

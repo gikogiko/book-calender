@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   before_action :require_user_logged_in
 
+  def show
+    @book = Book.find(params[:id])
+    @interesting_users = @book.interesting_users
+  end
+
   def new
     @books = []
 
@@ -16,25 +21,5 @@ class BooksController < ApplicationController
         @books << book
       end
     end
-  end
-
-  private
-
-  def read(result)
-    isbn = result['isbn']
-    name = result['title']
-    author = result['author']
-    value = result['itemPrice']
-    url = result['itemUrl']
-    image_url = result['largeImageUrl']
-    
-    return {
-      isbn: isbn,
-      name: name,
-      author: author,
-      value: value,
-      url: url,
-      image_url: image_url,
-    }
   end
 end

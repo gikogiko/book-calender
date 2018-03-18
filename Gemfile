@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rakuten_web_service', '1.5.0'
 
 gem 'dotenv-rails'
+
+gem 'simple_calendar', '~> 2.0'

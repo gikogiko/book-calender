@@ -5,4 +5,10 @@ class Book < ApplicationRecord
   validates :value, numericality: true
   validates :url, presence: true, length: { maximum: 255 }
   validates :image_url, presence: true, length: { maximum: 255 }
+  
+  has_many :ownerships
+  has_many :books, through: :ownerships
+  
+  has_many :interestings
+  has_many :interesting_users, through: :interestings, class_name: 'User', source: :user
 end

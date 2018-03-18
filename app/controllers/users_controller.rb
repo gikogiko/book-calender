@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @books = @user.books.uniq
+    @count_interesting = @user.interesting_books.count
   end
 
   def new

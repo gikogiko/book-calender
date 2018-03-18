@@ -1,0 +1,2 @@
+class Interesting < Ownership
+end
