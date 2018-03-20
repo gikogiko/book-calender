@@ -10,10 +10,12 @@ class OwnershipsController < ApplicationController
       @book.save
     end
 
-    # Interesting 関係として保存
     if params[:type] == 'Interesting'
       current_user.interesting(@book)
       flash[:success] = 'この書籍が気になります！'
+    elsif params[:type] == 'Order'
+      current_user.order(@book)
+      flash[:success] = 'この書籍を購入しました！。'
     end
 
     redirect_back(fallback_location: root_path)
@@ -24,7 +26,10 @@ class OwnershipsController < ApplicationController
 
     if params[:type] == 'Interesting'
       current_user.uninteresting(@book) 
-      flash[:success] = '商品の Interesting を解除しました。'
+      flash[:success] = '書籍に興味を示さなくなりました。'
+    elsif params[:type] == 'Have'
+      current_user.unorder(@book) 
+      flash[:success] = '書籍を購入予定から解除しました。'
     end
 
     redirect_back(fallback_location: root_path)

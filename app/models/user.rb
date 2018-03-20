@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :interestings
   has_many :interesting_books, through: :interestings, class_name: 'Book', source: :book
 
+  has_many :orders
+  has_many :order_books, through: :orders, class_name: 'Book', source: :book
+
   def interesting(book)
     self.interestings.find_or_create_by(book_id: book.id)
   end
@@ -23,6 +26,19 @@ class User < ApplicationRecord
   
   def interesting?(book)
     self.interesting_books.include?(book)
+  end
+  
+  def order(book)
+    self.orders.find_or_create_by(book_id: book.id)
+  end
+  
+  def unorder(book)
+    order = self.orders.find_by(book_id: book.id)
+    order.destroy if order
+  end
+  
+  def order?(book)
+    self.order_books.include?(book)
   end
 end
 

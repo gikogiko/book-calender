@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books.uniq
     @count_interesting = @user.interesting_books.count
+    @count_order = @user.order_books.count
   end
 
   def new

@@ -1,0 +1,13 @@
+<% if current_user.order?(book) %>
+  <%= form_tag(ownership_path(book.id), method: :delete) do %>
+    <%= hidden_field_tag :book_id, book.id %>
+    <%= hidden_field_tag :type, 'Order' %>
+    <%= submit_tag 'Order', class: 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= form_tag(ownerships_path) do %>
+    <%= hidden_field_tag :book_isbn, book.isbn %>
+    <%= hidden_field_tag :type, 'Order' %>
+    <%= submit_tag 'Order it', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
