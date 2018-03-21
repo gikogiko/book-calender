@@ -18,12 +18,12 @@ class ApplicationController < ActionController::Base
     value = result['itemPrice']
     url = result['itemUrl']
     image_url = result['largeImageUrl']
-    release_date = result['salesDate']
-    #if result['salesDate'] == '%Y年%m月%d日'
-      #release_date = Date.strptime(result['salesDate'],'%Y年%m月%d日')
-    #elsif 
-      #release_date =''
-    #end
+    #release_date = result['salesDate']
+    if result['salesDate'].length == 11
+      release_date = Date.strptime(result['salesDate'],'%Y年%m月%d日')
+    elsif 
+      release_date =''
+    end
       
     
   return {

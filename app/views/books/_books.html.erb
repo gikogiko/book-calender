@@ -8,6 +8,12 @@
               <img src="<%= book.image_url %>" alt="" >
             </div>
             <div class="panel-body">
+              <% if book.persisted? %>
+                <p class="book-title text-center"><%= link_to book.name, book %></p>
+              <% else %>
+                <p class="book-title text-center"><%= book.name %></p>
+              <% end %>
+                <p class="book-release_date text-center"><%= book.release_date %></p>
               <div class="buttons text-center">
                 <% if logged_in? %>
                   <%= render 'ownerships/interesting_button', book: book %>

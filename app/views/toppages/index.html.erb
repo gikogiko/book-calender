@@ -19,8 +19,17 @@
   <%= date %>
   <% books.each do |book| %>
     <div>
-      <%= book.name %>
+       <p class="book-title"><%= link_to book.name, book %></p>
       <img src="<%= book.image_url %>" width="50px" height="50px">
     </div>
   <% end %>
+<% end %>
+
+<h1>発売日未定書籍一覧</h1>
+<% @books.each do |book| %>
+  <div>
+    <% if book.release_date == nil %>
+     <p class="book-title"><%= link_to book.name, book %></p>
+    <% end %>
+  </div>
 <% end %>

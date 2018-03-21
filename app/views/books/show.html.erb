@@ -6,7 +6,7 @@
           <img src="<%= @book.image_url %>" alt="">
         </div>
         <div class="panel-body">
-          <p class="book-name"><%= @book.name %></p>
+          <p class="book-name text-center"><%= @book.name %></p>
           <div class="buttons text-center">
             <% if logged_in? %>
               <%= render 'ownerships/interesting_button', book: @book %>
@@ -16,5 +16,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div>
+    <p class="book-author"><%= @book.author %></p>  
+    <p class="book-release_date"><%= @book.release_date %></p>
+    <p class="book-value"><%= @book.value %></p>
   </div>
 </div>
