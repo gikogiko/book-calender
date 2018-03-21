@@ -13,7 +13,7 @@
 
 <%= render 'books/books', books: @books %>
 
-<h1>ここからカレンダー検証用</h1>
+<h1>発売日カレンダー</h1>
 
 <%= month_calendar events: @interestings, attribute: :release_date do |date, books| %>
   <%= date %>

@@ -23,4 +23,14 @@ class BooksController < ApplicationController
       end
     end
   end
+
+  # https://webservice.rakuten.co.jp/api/booksbooksearch/
+  def reload
+    book = Book.find(params[:id])
+    
+    publish_date = 'xxx' # ここを API から取得する
+    book.publish_date = publish_date
+
+    book.save
+  end
 end

@@ -77,7 +77,7 @@ p.book-title {
 /* book */
 /* 修正分 */
 .book .panel-body {
-  height: 120px;    /* Interesting ボタンが増えたので、70px から 120pxに修正 */
+  height: 140px;    /* Interesting ボタンが増えたので、70px から 120pxに修正 */
 }
 
 /* 追加分 */
